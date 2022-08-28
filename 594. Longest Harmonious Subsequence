@@ -1,0 +1,27 @@
+class Solution {
+public:
+    int findLHS(vector<int>& nums) {
+        int left = 0 , right = 0 , result = 0;
+        sort(nums.begin() , nums.end());
+        while (right < nums.size())
+        {
+            int def = nums[right] - nums[left] ;  
+            if (def == 1)
+            {
+             if ((right - left + 1) > result )
+                 result = (right - left + 1);
+                right++;
+            }
+            else if (def <= 1)
+            {
+                right++;
+            }
+            else
+            {
+                left++;
+            }
+        }
+        return result;
+        
+    }
+};
