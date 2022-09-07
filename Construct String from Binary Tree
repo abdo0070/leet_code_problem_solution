@@ -1,0 +1,24 @@
+class Solution {
+public:
+    string tree2str(TreeNode* root) {
+      if(root == NULL)
+      {
+          return "";
+      }
+        string str = to_string(root->val);
+        if(root->left != nullptr)
+        {
+            str+="(" + tree2str(root->left) + ")";
+        }
+        else if(root->right != nullptr)
+        {
+            str+="()";
+        }
+        
+        if(root->right != nullptr)
+        {
+          str+="(" + tree2str(root->right) + ")";   
+        }
+        return str;
+    }
+};
