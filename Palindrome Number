@@ -1,0 +1,40 @@
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        // CONVERTE INT TO STRING 
+            string num = to_string(x);
+        // CHECK IF THIS STRING IS PALINDROME
+            return isStringPalindrome(num);
+    }
+    bool isStringPalindrome(string num){
+        for (int i = 0 ;i <  num.length();i++){
+            if (num[i] == num[num.length()-i - 1]){
+                continue;
+            }
+            else{
+                return false;
+            }
+        }
+      return true;
+    }
+};
+/*
+//ANTHOER AND BEST SOLUTION
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        if( x < 0 || x >= INT_MAX)
+            return false;
+        long int num = 0;
+        int dummy = x;
+        while(x > 0){
+            num *= 10;
+            if( num > INT_MAX)
+                return false;
+            num = num + (x % 10);
+            x /= 10;
+        }
+        return (num==dummy);
+    }
+};
+*/
