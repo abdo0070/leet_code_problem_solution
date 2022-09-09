@@ -1,0 +1,19 @@
+class Solution {
+public:
+    vector<string> generateParenthesis(int n) {
+        vector<string> ans ;
+        backtracking(ans,counter,0,0,n);
+        return ans;
+    }
+    void backtracking
+    (vector<string> & ans,string current,int open , int close , int max) {
+          if (current.length() == max * 2) {// Base Case
+            ans.push_back(current);
+            return;
+        }
+        if (open < max)
+            backtracking(ans , current + "(" ,open+1,close,max);
+        if (close < open)
+            backtracking(ans, current+")",open,close+1,max);
+    }
+};
